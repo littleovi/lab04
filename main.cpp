@@ -46,8 +46,26 @@ char  nibble_to_hex(uint8_t i){
       uint8_t high = (byte & 0b11110000)>>4;
         cout<< nibble_to_hex(high)<< nibble_to_hex(low);
 }
+
+    void print_in_hex(const void* data, size_t size){
+        auto p = reinterpret_cast<const uint8_t*>(data);
+        for(size_t i=0; i< size; i++){
+            print_byte(*(p+i));
+            cout<<';';
+        }
+
+
+    }
+
+
         int main() {
             uint8_t m=59;
             print_byte(m);
+            cout<<'\n';
+            int k=47;
+            print_in_hex(&k, sizeof(k));
+
             return 0;
+
+
 }
