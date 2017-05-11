@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 
 using namespace std;
 
@@ -54,17 +55,50 @@ char  nibble_to_hex(uint8_t i){
             cout<<';';
         }
 
-
     }
+  struct student{
+  char name[17];
+  uint16_t year;
+  double middlemark;
+  bool sex;
+  int course;
+  student* prefect;
+};
 
 
         int main() {
             uint8_t m=59;
             print_byte(m);
             cout<<'\n';
+
             int k=47;
             print_in_hex(&k, sizeof(k));
 
+            student s[3];
+            strcpy(s[0].name,"Olga");
+            s[0].year = 2016;
+            s[0].middlemark = 4.4;
+            s[0].sex = 0;
+            s[0].course = 1;
+            s[0].prefect = nullptr;
+            strcpy(s[1].name,"Irina");
+            s[1].year = 2016;
+            s[1].middlemark = 4;
+            s[1].sex = 0;
+            s[1].course = 1;
+            s[1].prefect = &s[0];
+            strcpy(s[2].name,"Tanya");
+            s[2].year = 2016;
+            s[2].middlemark = 3.8;
+            s[2].sex = 0;
+            s[2].course = 1;
+            s[2].prefect = &s[0];
+
+            cout<<"\naddress massiva:"<<&s<<"\nsize massiva:"<<sizeof(s)<<"\naddress 1:" <<&s[0]<<"\n size 1:"
+                    <<sizeof(s[0]) <<"\naddress 2:" <<&s[1]<<"\n size 2:"
+                    <<sizeof(s[1]) <<"\naddress 3:"<<&s[2]<<"\n size 3:"
+                    <<sizeof(s[2]) <<"\ni:";
+                    print_in_hex(&s[0], sizeof(s[0]));
             return 0;
 
 
