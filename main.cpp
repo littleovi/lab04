@@ -99,6 +99,19 @@ char  nibble_to_hex(uint8_t i){
                     <<sizeof(s[1]) <<"\naddress 3:"<<&s[2]<<"\n size 3:"
                     <<sizeof(s[2]) <<"\ni:";
                     print_in_hex(&s[0], sizeof(s[0]));
+
+            char path[64], message[48];
+            const char* greeting ="Enter path";
+            fgets(path,sizeof(path),stdin);
+            strcpy(message,greeting);
+            strcat( message,",");
+            strcat( message, path );
+            strcat( message, "!");
+            puts(message);
+
+
+
+
             return 0;
 
 
